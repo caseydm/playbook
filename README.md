@@ -1,18 +1,25 @@
 # Playbook
 
-This is a guide for building and supporting python-backed web applications for small-to-medium sized businesses. It is recommended for businesses that have one to three developers and hosting costs of less than $1,000 per month.
+This is my guide for building and supporting python-backed web applications for small-to-medium sized businesses. It is recommended for businesses that have one to three developers and hosting costs of less than $1,000 per month.
 
-## Small business requirements
+## The Small Business Problem
 
-Many small businesses benefit from a custom web application. 
+Many small businesses can benefit from a custom web application. And it is normal to turn to a web development agency or expert to develop it. However, web agencies are building the application with more resources than the small business has access to. They may have access to server administrators, database experts, etc. This is useful for *building* the application. But what about maintenance and improvements? 
+
+When an agency configures a server with custom scripts, you are locked into them for updates. It can be very difficult to move to another developer if anything changes in the relationship. Things that can change:
+- Agency gets busy with bigger clients and response times slow
+- Agency changes business model (often to a software company) and stops supporting clients
+- Small business wants to reduce costs and find a lower cost developer
+
+I've taken over applications from agencies and it is a scary process for the client. The code and performance is usually very good. But it often requires logging into the server as a root user to change anything. The server is often a single point of failure, hosting the staging and production versions of the site. The update process is custom and with unknown effects. The server packages are out of date. One bad move and the production site crashes. The new developer has to comb through every portion of the code to try and figure out what went wrong.
 
 ## Trusted Framework
 
-I have worked with many small businesses, and have seen many ways to host a web application. Through lessons learned, I have built what I call the 'Trusted Framework', which is intended to meet these three goals: 
+ Through lessons learned, I have built what I call the 'Trusted Framework', which is intended to meet these three goals and solve the small business problem: 
 
 - Reliable and secure application hosting, with server setup, security patches, and backups built-in
 - Simple and repeatable development process that allows for testing and previewing changes in isolated enivoronments
-- Documented continuity to easily hand off application to another developer
+- Documented continuity to easily hand off the application to another developer
 
 To meet those goals I use the following tools and processes:
 
@@ -48,11 +55,24 @@ Managed hosting utilizes linux servers to host your site. However, the hosting p
 
 If you do not have an in-house team of system administrators, I highly recommend you use managed hosting for your application.
 
+My managed hosting provider of choice is Heroku. Heroku is built on top of Amazon Web Services. It is stable and reliable. THey make it incredibly easy to create and maintain a python application. Building on Heroku enforces best practices ([12 factor app](https://12factor.net/)) that will go with you if you decide to move to a different host.
+
+Pros
+- Security updates and backups provided, no need for system administrators
+- Easy to deploy code and bring in new developers
+
+Cons
+- May cost more
+
 ### Why Django?
 
 Django is a battle-tested, well-documented framework that 
 
 ### Why host code and track issues using GitHub?
+
+### Why not Docker?
+
+
 
 
 
